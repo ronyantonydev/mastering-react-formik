@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import TextField from "../../components/textField/textField";
-import LogInPageStyle from "./logInPageStyle";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import LoggedIn from "../loggedIn/loggedIn";
+import LogInPageStyle from "./logInPageStyle";
+import TextField from "../../components/textField/textField";
 
 const LogInPage: React.FC<{}> = () => {
   const [logIn, setLogIn] = useState(false);

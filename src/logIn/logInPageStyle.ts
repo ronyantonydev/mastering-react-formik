@@ -14,7 +14,7 @@ const LogInPageStyle = styled.div`
     justify-content: center;
     gap: 1rem;
     width: 100%;
-    min-width: 300px;
+    min-width: 18.75rem;
   }
   .button-container {
     width: 100%;
@@ -24,13 +24,13 @@ const LogInPageStyle = styled.div`
     justify-content: center;
     align-items: center;
     .log-in-button {
-      width: 180px;
+      width: 11.25rem;
       height: 100%;
       color: #003b46;
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 0.62rem;
       border: none;
     }
   }

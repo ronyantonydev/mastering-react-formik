@@ -17,7 +17,7 @@ const TextFieldStyle = styled.div`
     font-size: 1rem;
     font-weight: 600;
     height: 3rem;
-    border-radius: 10px;
+    border-radius: 0.62rem;
     border: none;
   }
   .helper-text-container {
