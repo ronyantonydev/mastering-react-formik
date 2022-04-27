@@ -1,10 +1,10 @@
 import "./styles.css";
-import LogInPage from "./logIn/logInPage";
+import Register from "./register/registerPage";
 
 export default function App() {
   return (
     <div className="App">
-      <LogInPage />
+      <Register />
     </div>
   );
 }

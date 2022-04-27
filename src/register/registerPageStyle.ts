@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
-const LogInPageStyle = styled.div`
+const RegisterPageStyle = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c4dfe6;
   .text-field-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     width: 100%;
     min-width: 18.75rem;
+    padding-top: 1rem;
   }
   .button-container {
     width: 100%;
@@ -35,4 +35,4 @@ const LogInPageStyle = styled.div`
     }
   }
 `;
-export default LogInPageStyle;
+export default RegisterPageStyle;

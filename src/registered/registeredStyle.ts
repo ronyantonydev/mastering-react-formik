@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoggedInStyle = styled.div`
+const RegisteredStyle = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -15,4 +15,4 @@ const LoggedInStyle = styled.div`
     font-style: italic;
   }
 `;
-export default LoggedInStyle;
+export default RegisteredStyle;
