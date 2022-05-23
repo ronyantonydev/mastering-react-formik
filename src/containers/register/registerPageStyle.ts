@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const RegisterPageStyle = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,7 @@ const RegisterPageStyle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
   }
   .name-container {
     box-shadow: 3px 2px 20px #bbb;
@@ -40,6 +41,31 @@ const RegisterPageStyle = styled.div`
   .password-container {
     box-shadow: 3px 2px 20px #bbb;
     padding: 2rem;
+  }
+  .personal-container {
+    box-shadow: 3px 2px 20px #bbb;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    .number-container {
+      display: flex;
+      width: 100%;
+      gap: 2%;
+      .country-field {
+        width: 49%;
+      }
+      .number-field {
+        width: 49%;
+      }
+    }
+  }
+  .more-data-container {
+    box-shadow: 3px 2px 20px #bbb;
+    padding: 2rem;
+    #text-area-field {
+      min-height: 5rem !important;
+    }
   }
   .button-container {
     width: 100%;

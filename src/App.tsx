@@ -1,5 +1,5 @@
 import "./styles.css";
-import Register from "./register/registerPage";
+import Register from "./containers/register/registerPage";
 
 export default function App() {
   return (

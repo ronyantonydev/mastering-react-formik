@@ -11,6 +11,7 @@ const TextField: React.FC<{
   autoComplete?: any;
   error?: any;
   helperText?: any;
+  id?: any;
 }> = (props) => {
   return (
     <TextFieldStyle>
@@ -23,6 +24,7 @@ const TextField: React.FC<{
         value={props.value}
         onChange={props.handleChange}
         autoComplete={props.autoComplete}
+        id={props.id}
       />
       {props.error && (
         <div className="helper-text-container">{props.helperText}</div>

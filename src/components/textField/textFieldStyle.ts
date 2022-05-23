@@ -7,10 +7,10 @@ const TextFieldStyle = styled.div`
   color: blue;
 
   .label-container {
-    color: #003b46;
+    color: #444;
     text-align: left;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    padding: 0.8rem 0rem;
   }
   .input-container {
     color: #003b46;
@@ -27,6 +27,9 @@ const TextFieldStyle = styled.div`
     font-weight: 400;
     color: #0a0a0a;
     padding-left: 1rem;
+    ::placeholder {
+      font-size: 0.8rem;
+    }
   }
   .helper-text-container {
     color: #f44336;

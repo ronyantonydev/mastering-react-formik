@@ -7,9 +7,14 @@ import RegisterPageStyle from "./registerPageStyle";
 import MuiTextField from "../../components/muiTextField/muiTextField";
 import MuiAutocompleteField from "../../components/muitAuotoComplete/muiAutoComplete";
 import countries from "../models/countries";
+import Box from "@mui/material/Box";
+import MuiDatePicker from "../../components/datePicker/datePicker";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import MuiSelectField from "../../components/muiSelectField/muiSelectField";
 
 const Register: React.FC<{}> = () => {
   const [logIn, setLogIn] = useState(false);
+  const [value, setValue] = React.useState<Date | null>(new Date());
 
   const validate = Yup.object({
     firstName: Yup.string().required("Please enter your first name."),
@@ -17,7 +22,11 @@ const Register: React.FC<{}> = () => {
     email: Yup.string().required("Please enter your email."),
     password: Yup.string()
       .min(6, "password must be at least 6 characters")
-      .required("Required password")
+      .required("Required password"),
+    choosePassword: Yup.string().required("please choose a password"),
+    confirmPassword: Yup.string().required("Please confirm your password"),
+    phone: Yup.number().required("Please enter a valid phone number"),
+    country: Yup.string().required("please select your country")
   });
 
   return (
@@ -30,7 +39,12 @@ const Register: React.FC<{}> = () => {
             firstName: "",
             lastName: "",
             email: "",
-            password: ""
+            password: "",
+            choosePassword: "",
+            confirmPassword: "",
+            text: "",
+            phone: "",
+            country: ""
           }}
           onSubmit={async (values) => {
             await new Promise((resolve) => setTimeout(resolve, 500));
@@ -88,7 +102,7 @@ const Register: React.FC<{}> = () => {
                 <div className="text-field-container">
                   <MuiTextField
                     variant="outlined"
-                    label="password"
+                    label="Enter your current password"
                     name="password"
                     onChange={handleChange}
                     error={touched.password && Boolean(errors.password)}
@@ -98,31 +112,99 @@ const Register: React.FC<{}> = () => {
                 <div className="text-field-container">
                   <MuiTextField
                     variant="outlined"
-                    label="password"
-                    name="password"
+                    label="choose a new password"
+                    name="choosePassword"
                     onChange={handleChange}
-                    error={touched.password && Boolean(errors.password)}
-                    helperText={touched.password && errors.password}
+                    error={
+                      touched.choosePassword && Boolean(errors.choosePassword)
+                    }
+                    helperText={touched.choosePassword && errors.choosePassword}
                   />
                   <MuiTextField
                     variant="outlined"
-                    label="password"
-                    name="password"
+                    label="confirm your new password"
+                    name="confirmPassword"
                     onChange={handleChange}
-                    error={touched.password && Boolean(errors.password)}
-                    helperText={touched.password && errors.password}
+                    error={
+                      touched.confirmPassword && Boolean(errors.confirmPassword)
+                    }
+                    helperText={
+                      touched.confirmPassword && errors.confirmPassword
+                    }
                   />
                 </div>
               </div>
               <div className="personal-container">
-                <MuiAutocompleteField
-                  id="country-select"
-                  options={countries}
-                  autoHighlight
-                  renderInput={(params) => (
-                    <TextField {...params} label="Movie" />
-                  )}
+                <div className="password-title">reset password</div>
+                <div className="label-description">(no labels)</div>
+                <div className="number-container">
+                  <MuiAutocompleteField
+                    id="country-select"
+                    className="country-field"
+                    options={countries}
+                    autoHighlight
+                    getOptionLabel={(option: any) => option.label}
+                    renderOption={(props: any, option: any) => (
+                      <Box component="li" {...props}>
+                        {option.label} ({option.code}) +{option.phone}
+                      </Box>
+                    )}
+                    renderInput={(params: any) => (
+                      <MuiTextField
+                        {...params}
+                        name="country"
+                        label="Choose a country"
+                        variant="outlined"
+                        handleChange={handleChange}
+                        inputProps={{
+                          ...params.inputProps,
+                          autoComplete: "new-password"
+                        }}
+                        error={touched.country && Boolean(errors.country)}
+                        helperText={touched.country && errors.country}
+                      />
+                    )}
+                  />
+                  <MuiTextField
+                    variant="outlined"
+                    label=""
+                    name="phone"
+                    className="number-field"
+                    onChange={handleChange}
+                    error={touched.phone && Boolean(errors.phone)}
+                    helperText={touched.phone && errors.phone}
+                  />
+                </div>
+                {/* <div>
+                  <DatePicker
+                    disableFuture
+                    label="Responsive"
+                    openTo="year"
+                    views={["year", "month", "day"]}
+                    onChange={(newValue: any) => {
+                      setValue(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <MuiTextField variant="outlined" {...params} />
+                    )}
+                  />
+                </div> */}
+              </div>
+              <div className="more-data-container">
+                <div className="password-title">MORE INPUTS</div>
+                <TextField
+                  name="text"
+                  type="text"
+                  value={values.text}
+                  id="text-area-field"
+                  placeholder="Optional textarea"
+                  label="Textarea (optional)"
+                  handleChange={handleChange}
+                  autoComplete="disabled"
+                  error={touched.text && Boolean(errors.text)}
+                  helperText={touched.text && errors.text}
                 />
+                <MuiSelectField />
               </div>
               <div className="button-container">
                 <button className="log-in-button" type="submit">
