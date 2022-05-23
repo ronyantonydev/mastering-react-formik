@@ -6,6 +6,12 @@ const RegisterPageStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
   .name-container {
     box-shadow: 3px 2px 20px #bbb;
     padding: 2rem;
@@ -30,6 +36,10 @@ const RegisterPageStyle = styled.div`
     width: 100%;
     min-width: 18.75rem;
     padding-top: 1rem;
+  }
+  .password-container {
+    box-shadow: 3px 2px 20px #bbb;
+    padding: 2rem;
   }
   .button-container {
     width: 100%;

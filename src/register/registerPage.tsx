@@ -5,6 +5,8 @@ import TextField from "../../components/textField/textField";
 import Registered from "../registered/registered";
 import RegisterPageStyle from "./registerPageStyle";
 import MuiTextField from "../../components/muiTextField/muiTextField";
+import MuiAutocompleteField from "../../components/muitAuotoComplete/muiAutoComplete";
+import countries from "../models/countries";
 
 const Register: React.FC<{}> = () => {
   const [logIn, setLogIn] = useState(false);
@@ -38,7 +40,7 @@ const Register: React.FC<{}> = () => {
           validationSchema={validate}
         >
           {({ values, errors, touched, handleChange, handleSubmit }) => (
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="form-container">
               <div className="name-container">
                 <div className="register-title">Register</div>
                 <div className="label-description">(no labels)</div>
@@ -81,6 +83,8 @@ const Register: React.FC<{}> = () => {
                 </div>
               </div>
               <div className="password-container">
+                <div className="password-title">reset password</div>
+                <div className="label-description">(no labels)</div>
                 <div className="text-field-container">
                   <MuiTextField
                     variant="outlined"
@@ -91,6 +95,34 @@ const Register: React.FC<{}> = () => {
                     helperText={touched.password && errors.password}
                   />
                 </div>
+                <div className="text-field-container">
+                  <MuiTextField
+                    variant="outlined"
+                    label="password"
+                    name="password"
+                    onChange={handleChange}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                  />
+                  <MuiTextField
+                    variant="outlined"
+                    label="password"
+                    name="password"
+                    onChange={handleChange}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                  />
+                </div>
+              </div>
+              <div className="personal-container">
+                <MuiAutocompleteField
+                  id="country-select"
+                  options={countries}
+                  autoHighlight
+                  renderInput={(params) => (
+                    <TextField {...params} label="Movie" />
+                  )}
+                />
               </div>
               <div className="button-container">
                 <button className="log-in-button" type="submit">
