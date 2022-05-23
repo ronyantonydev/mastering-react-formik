@@ -6,6 +6,21 @@ const RegisterPageStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  .name-container {
+    box-shadow: 3px 2px 20px #bbb;
+    padding: 2rem;
+    .register-title {
+      width: 100%;
+      text-align: start;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .label-description {
+      width: 100%;
+      text-align: start;
+      padding: 1rem 0rem;
+    }
+  }
   .text-field-container {
     display: flex;
     flex-direction: row;
