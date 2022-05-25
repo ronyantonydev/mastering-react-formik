@@ -6,11 +6,12 @@ import Registered from "../registered/registered";
 import RegisterPageStyle from "./registerPageStyle";
 import MuiTextField from "../../components/muiTextField/muiTextField";
 import MuiAutocompleteField from "../../components/muitAuotoComplete/muiAutoComplete";
-import countries from "../models/countries";
+import countries from "../../models/countries";
 import Box from "@mui/material/Box";
 import MuiDatePicker from "../../components/datePicker/datePicker";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import MuiSelectField from "../../components/muiSelectField/muiSelectField";
+import { days, month, year } from "../../models/datesArray";
 
 const Register: React.FC<{}> = () => {
   const [logIn, setLogIn] = useState(false);
@@ -44,7 +45,10 @@ const Register: React.FC<{}> = () => {
             confirmPassword: "",
             text: "",
             phone: "",
-            country: ""
+            country: "",
+            day: "",
+            month: "",
+            year: ""
           }}
           onSubmit={async (values) => {
             await new Promise((resolve) => setTimeout(resolve, 500));
@@ -189,6 +193,27 @@ const Register: React.FC<{}> = () => {
                     )}
                   />
                 </div> */}
+                <MuiSelectField
+                  variant="outlined"
+                  options={days}
+                  value={values.day}
+                  name="day"
+                  onChange={handleChange}
+                />
+                <MuiSelectField
+                  variant="outlined"
+                  options={month}
+                  value={values.month}
+                  name="month"
+                  onChange={handleChange}
+                />
+                <MuiSelectField
+                  variant="outlined"
+                  options={year}
+                  value={values.year}
+                  name="year"
+                  onChange={handleChange}
+                />
               </div>
               <div className="more-data-container">
                 <div className="password-title">MORE INPUTS</div>
@@ -204,7 +229,6 @@ const Register: React.FC<{}> = () => {
                   error={touched.text && Boolean(errors.text)}
                   helperText={touched.text && errors.text}
                 />
-                <MuiSelectField />
               </div>
               <div className="button-container">
                 <button className="log-in-button" type="submit">

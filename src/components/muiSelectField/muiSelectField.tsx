@@ -1,27 +1,23 @@
-import { Select, styled } from "@material-ui/core";
 import React from "react";
-import MenuItem from "@mui/material/MenuItem";
+import { MenuItem } from "@material-ui/core";
+import { Select } from "@mui/material";
 
-const MuiSelectField: React.FC<{
-  value?: any;
-  handleChange?: any;
-  option?: any;
-}> = (props) => {
-  return (
-    <Select
-      value={props.value}
-      onChange={props.handleChange}
-      displayEmpty
-      inputProps={{ "aria-label": "Without label" }}
-    >
-      <MenuItem value="">
-        <em>None</em>
-      </MenuItem>
-      <MenuItem value={props.value}>{props.option}</MenuItem>
-      <MenuItem value={props.value}>{props.option}</MenuItem>
-      <MenuItem value={props.value}>{props.option}</MenuItem>
-    </Select>
-  );
-};
+const MuiSelectField = React.memo(
+  ({ value, handleChange, options, name }: any) => {
+    return (
+      <div>
+        <Select name={name} value={value} onChange={handleChange}>
+          {options.map((obj: any, key: any) => {
+            return (
+              <MenuItem key={key} value={obj.day}>
+                {obj.day}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </div>
+    );
+  }
+);
 
 export default MuiSelectField;
